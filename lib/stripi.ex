@@ -10,9 +10,9 @@ defmodule Stripi do
     |> response()
   end
 
-  defp response({:ok, resp = %{status: status}}) when status in 200..299, do: {:ok, resp}
+  defp response({:ok, resp = %{status: status}}) when status in 200..299, do: {:ok, resp.body}
 
-  defp response({:ok, resp}), do: {:error, resp}
+  defp response({:ok, resp}), do: {:error, resp.body}
 
   defp response(error), do: error
 
