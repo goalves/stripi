@@ -22,13 +22,22 @@ defmodule Stripi do
       plug(Tesla.Middleware.Tuples)
 
       plug(Tesla.Middleware.Headers, %{
-        "Authorization" => "Bearer #{Application.get_env(:stripi, :secret_key)}",
+        "Authorization" => "Bearer #{Stripi.get_key()}",
         "User-Agent" => "Stripi v#{@version}",
         "Content-Type" => "application/x-www-form-urlencoded"
       })
 
       plug(Tesla.Middleware.FormUrlencoded)
       plug(Tesla.Middleware.DecodeJson)
+    end
+  end
+
+  def get_key() do
+    :stripi
+    |> Application.get_env(:secret_key)
+    |> case do
+      nil -> raise("Please ensure :stripi key in config has a :secret_key.")
+      key -> key
     end
   end
 

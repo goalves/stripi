@@ -1,5 +1,5 @@
 defmodule Stripi.Customer do
-  @url Application.get_env(:stripi, :base_url) <> "/customers"
+  @url Application.get_env(:stripi, :base_url, "https://api.stripe.com/v1") <> "/customers"
   use Stripi, :api
 
   def create(params), do: Stripi.request(&post/2, [@url, params])
