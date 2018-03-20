@@ -1,6 +1,6 @@
-defmodule Stripex do
+defmodule Stripi do
   @moduledoc """
-  Stripex is yet another Stripe Api written in elixir.
+  Stripi is yet another Stripe Api written in elixir.
   """
   def request(request_function, parameters) do
     request_function
@@ -17,13 +17,13 @@ defmodule Stripex do
   def api do
     quote do
       use Tesla, except: ~w(head options)a
-      @version Stripex.MixProject.project()[:version]
+      @version Stripi.MixProject.project()[:version]
 
       plug(Tesla.Middleware.Tuples)
 
       plug(Tesla.Middleware.Headers, %{
-        "Authorization" => "Bearer #{Application.get_env(:stripex, :secret_key)}",
-        "User-Agent" => "Stripex v#{@version}",
+        "Authorization" => "Bearer #{Application.get_env(:stripi, :secret_key)}",
+        "User-Agent" => "Stripi v#{@version}",
         "Content-Type" => "application/x-www-form-urlencoded"
       })
 

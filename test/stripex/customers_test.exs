@@ -1,6 +1,6 @@
-defmodule Stripex.CustomersTest do
-  use Stripex.ApiCase
-  alias Stripex.Customer
+defmodule Stripi.CustomersTest do
+  use Stripi.ApiCase
+  alias Stripi.Customer
 
   test "create should create customer" do
     {atom, response} = Customer.create(%{email: "example@example.com"})

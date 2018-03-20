@@ -1,9 +1,9 @@
-defmodule Stripex.ApiCase do
+defmodule Stripi.ApiCase do
   use ExUnit.CaseTemplate
 
   using do
     quote do
-      doctest Stripex
+      doctest Stripi
     end
   end
 end

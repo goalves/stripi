@@ -1,2 +1,2 @@
-defmodule StripexTest do
+defmodule StripiTest do
 end

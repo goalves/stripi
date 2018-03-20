@@ -1,10 +1,10 @@
-defmodule Stripex.Customer do
-  @url Application.get_env(:stripex, :base_url) <> "/customers"
-  use Stripex, :api
+defmodule Stripi.Customer do
+  @url Application.get_env(:stripi, :base_url) <> "/customers"
+  use Stripi, :api
 
-  def create(params), do: Stripex.request(&post/2, [@url, params])
-  def fetch(id), do: Stripex.request(&get/2, [@url <> "/#{id}", []])
-  def remove(id), do: Stripex.request(&delete/2, [@url <> "/#{id}", []])
-  def update(id, params), do: Stripex.request(&post/2, [@url <> "/#{id}", params])
-  def index(params \\ []), do: Stripex.request(&get/2, [@url, params])
+  def create(params), do: Stripi.request(&post/2, [@url, params])
+  def fetch(id), do: Stripi.request(&get/2, [@url <> "/#{id}", []])
+  def remove(id), do: Stripi.request(&delete/2, [@url <> "/#{id}", []])
+  def update(id, params), do: Stripi.request(&post/2, [@url <> "/#{id}", params])
+  def index(params \\ []), do: Stripi.request(&get/2, [@url, params])
 end
