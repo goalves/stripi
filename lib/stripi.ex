@@ -12,7 +12,7 @@ defmodule Stripi do
 
   defp response({:ok, resp = %{status: status}}) when status in 200..299, do: {:ok, resp.body}
 
-  defp response({:ok, resp}), do: {:error, resp.body}
+  defp response({:ok, resp}), do: {:error, resp.body["error"]["type"]}
 
   defp response(error), do: error
 

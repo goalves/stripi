@@ -1,8 +1,22 @@
 # Stripi
 
 Stripi is yet another Stripe Elixir API.
-This is still in early stages of development and currently only supports the
-customer resource in Stripe.
+This is still in early stages of development.
+
+- [x] Charges
+- [x] Customers
+- [x] Ephemeral Keys
+- [ ] Balance
+- [ ] Disputes
+- [ ] Events
+- [ ] File Uploads
+- [ ] Payouts
+- [ ] Refunds
+- [ ] Tokens
+- [ ] Sources
+- [ ] Subscriptions
+- [ ] Connect
+
 
 ## Installation
 
