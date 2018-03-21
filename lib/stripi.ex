@@ -21,13 +21,13 @@ defmodule Stripi do
       use Tesla, except: ~w(head options)a
 
       plug(Tesla.Middleware.Tuples)
-      plug(Tesla.Middleware.Headers, Stripi.get_headers())
       plug(Tesla.Middleware.FormUrlencoded)
+      plug(Tesla.Middleware.Headers, Stripi.headers())
       plug(Tesla.Middleware.DecodeJson)
     end
   end
 
-  def get_key() do
+  def secret_key() do
     :stripi
     |> Application.get_env(:secret_key)
     |> case do
@@ -36,14 +36,15 @@ defmodule Stripi do
     end
   end
 
-  def get_headers() do
+  def headers() do
     %{
-      "Authorization" => "Bearer #{Stripi.get_key()}",
+      "Authorization" => "Bearer #{Stripi.secret_key()}",
       "User-Agent" => "Stripi v#{@version}",
-      "Content-Type" => "application/x-www-form-urlencoded",
-      "Stripe-Version" => "2018-02-28"
+      "Content-Type" => "application/x-www-form-urlencoded"
     }
   end
+
+  def api_version(), do: "2018-02-28"
 
   defmacro __using__(which) when is_atom(which), do: apply(__MODULE__, which, [])
 end
