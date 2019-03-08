@@ -40,3 +40,8 @@ config :stripi,
   base_url: "https://api.stripe.com/v1",
   secret_key: "sk_test_SECRET"
 ```
+
+## Usage
+
+Tests are the best documentation of any code, the easiest way to understand how to use the library is by reading the
+test cases.
