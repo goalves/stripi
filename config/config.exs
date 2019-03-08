@@ -2,6 +2,6 @@ use Mix.Config
 
 config :stripi, base_url: "https://api.stripe.com/v1"
 
-if File.exists?("config/secret.exs") do
-  import_config "secret.exs"
-end
+config :tesla, adapter: Tesla.Adapter.Hackney
+
+if File.exists?("config/secret.exs"), do: import_config("secret.exs")
