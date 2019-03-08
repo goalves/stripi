@@ -20,10 +20,9 @@ defmodule Stripi do
     quote do
       use Tesla, except: ~w(head options)a
 
-      plug(Tesla.Middleware.Tuples)
       plug(Tesla.Middleware.FormUrlencoded)
       plug(Tesla.Middleware.Headers, Stripi.headers())
-      plug(Tesla.Middleware.DecodeJson)
+      plug(Tesla.Middleware.JSON)
     end
   end
 
@@ -36,13 +35,11 @@ defmodule Stripi do
     end
   end
 
-  def headers() do
-    %{
-      "Authorization" => "Bearer #{Stripi.secret_key()}",
-      "User-Agent" => "Stripi v#{@version}",
-      "Content-Type" => "application/x-www-form-urlencoded"
-    }
-  end
+  def headers(),
+    do: [
+      {"Authorization", "Bearer #{Stripi.secret_key()}"},
+      {"User-Agent", "Elixir Stripi v#{@version}"}
+    ]
 
   def api_version(), do: "2018-02-28"
 

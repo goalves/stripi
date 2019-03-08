@@ -42,10 +42,11 @@ defmodule Stripi.MixProject do
 
   defp deps(),
     do: [
-      {:tesla, "~> 0.10.0"},
-      {:poison, ">= 0.0.0"},
-      {:excoveralls, "~> 0.8", only: :test},
-      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
+      {:tesla, "~> 1.2.0"},
+      {:hackney, "~> 1.14.0"},
+      {:jason, ">= 1.0.0"},
+      {:excoveralls, "~> 0.10", only: :test},
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
 end

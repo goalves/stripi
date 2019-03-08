@@ -3,7 +3,9 @@ defmodule Stripi.ChargesTest do
   alias Stripi.{Customers, Charges}
 
   setup do
-    {_, resp} = Customers.create(%{email: "charge_test_customers@example.com", source: "tok_mastercard"})
+    {_, resp} =
+      Customers.create(%{email: "charge_test_customers@example.com", source: "tok_mastercard"})
+
     %{customer_id: resp["id"]}
   end
 
@@ -38,7 +40,9 @@ defmodule Stripi.ChargesTest do
   end
 
   test "capture should capture a charge", %{customer_id: id} do
-    {:ok, create_resp} = Charges.create(%{amount: 100, currency: "usd", customer: id, capture: false})
+    {:ok, create_resp} =
+      Charges.create(%{amount: 100, currency: "usd", customer: id, capture: false})
+
     {atom, response} = Charges.capture(create_resp["id"], %{amount: 100})
 
     assert atom == :ok

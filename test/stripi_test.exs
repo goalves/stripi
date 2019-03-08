@@ -1,2 +1,0 @@
-defmodule StripiTest do
-end
