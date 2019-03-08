@@ -6,7 +6,7 @@ defmodule Stripi.EphemeralKeysTest do
     {:ok, create_response} = Customers.create(%{email: "example@example.com"})
 
     {atom, response} =
-      EphemeralKeys.create(create_response["id"], headers: %{"Stripe-Version" => "2018-02-28"})
+      EphemeralKeys.create(create_response["id"], headers: [{"Stripe-Version", "2018-02-28"}])
 
     assert atom == :ok
     assert String.starts_with?(response["id"], "ephkey_")
@@ -27,7 +27,7 @@ defmodule Stripi.EphemeralKeysTest do
     {:ok, ephemeral_create_response} =
       EphemeralKeys.create(
         customer_create_response["id"],
-        headers: %{"Stripe-Version" => "2018-02-28"}
+        headers: [{"Stripe-Version", "2018-02-28"}]
       )
 
     {atom, response} = EphemeralKeys.remove(ephemeral_create_response["id"])
