@@ -11,5 +11,5 @@ defmodule Stripi.Api do
     end
   end
 
-  def api_version(), do: "2018-02-28"
+  def api_version(), do: "2019-02-19"
 end

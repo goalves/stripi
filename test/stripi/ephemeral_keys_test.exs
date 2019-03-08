@@ -8,7 +8,7 @@ defmodule Stripi.EphemeralKeysTest do
   end
 
   test "create should create a ephemeral key for a customer", %{customer_id: customer_id} do
-    assert {:ok, response} = EphemeralKeys.create(customer_id, headers: [{"Stripe-Version", "2018-02-28"}])
+    assert {:ok, response} = EphemeralKeys.create(customer_id, headers: [{"Stripe-Version", "2019-02-19"}])
     assert String.starts_with?(response["id"], "ephkey_")
   end
 
@@ -18,7 +18,7 @@ defmodule Stripi.EphemeralKeysTest do
   end
 
   test "remove should delete a ephemeral key for a customer", %{customer_id: customer_id} do
-    assert {:ok, created_key} = EphemeralKeys.create(customer_id, headers: [{"Stripe-Version", "2018-02-28"}])
+    assert {:ok, created_key} = EphemeralKeys.create(customer_id, headers: [{"Stripe-Version", "2019-02-19"}])
     assert {:ok, response} = EphemeralKeys.remove(created_key["id"])
     assert String.starts_with?(response["id"], "ephkey_")
   end
