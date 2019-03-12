@@ -4,7 +4,7 @@ defmodule Stripi.MixProject do
   def project(),
     do: [
       app: :stripi,
-      version: "0.1.2",
+      version: "0.2.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -42,10 +42,11 @@ defmodule Stripi.MixProject do
 
   defp deps(),
     do: [
-      {:tesla, "~> 0.10.0"},
-      {:poison, ">= 0.0.0"},
-      {:excoveralls, "~> 0.8", only: :test},
-      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
+      {:tesla, "~> 1.2.0"},
+      {:hackney, "~> 1.14.0"},
+      {:jason, ">= 1.0.0"},
+      {:excoveralls, "~> 0.10", only: :test},
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
 end
