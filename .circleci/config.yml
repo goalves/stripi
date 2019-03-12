@@ -43,6 +43,6 @@ jobs:
           command: mix credo
       - run:
           name: Running Tests...
-          command: mix coveralls.circleci
+          command: mix coveralls.circle
       - store_test_results:
           path: _build/test/lib/stripi
