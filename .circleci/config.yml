@@ -6,7 +6,7 @@ jobs:
       - image: circleci/elixir:1.8
         environment:
           MIX_ENV: test
-    working_directory: ~/app
+    working_directory: ~/stripi
     steps:
       - checkout
       - run: mix local.hex --force
