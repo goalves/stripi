@@ -8,7 +8,7 @@ defmodule Stripi.CustomersTest do
   end
 
   test "create should return an error when email is invalid",
-    do: assert {:error, "invalid_request_error"} = Customers.create(%{email: "example.example.com"})
+    do: assert({:error, "invalid_request_error"} = Customers.create(%{email: "example.example.com"}))
 
   test "retrieve should get customer" do
     {:ok, created_customer} = Customers.create(%{email: "example@example.com"})
