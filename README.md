@@ -1,5 +1,8 @@
 # Stripi
 
+[![CircleCI](https://circleci.com/gh/goalves/stripi.svg?style=svg)](https://circleci.com/gh/goalves/stripi)
+[![Coverage Status](https://coveralls.io/repos/github/goalves/stripi/badge.svg?branch=master)](https://coveralls.io/github/goalves/stripi?branch=master)
+
 Stripi is yet another Stripe Elixir API.
 
 - [x] Charges
