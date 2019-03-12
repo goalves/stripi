@@ -5,6 +5,6 @@
   "coverage_options": {
     "output_dir": "cover/",
     "minimum_coverage": 0,
-    "treat_no_relevant_lines_as_covered": true,
+    "treat_no_relevant_lines_as_covered": true
   }
 }
