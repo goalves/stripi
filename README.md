@@ -15,7 +15,7 @@ Stripi is yet another Stripe Elixir API.
 - [ ] Payouts
 - [ ] Refunds
 - [ ] Tokens
-- [ ] Sources
+- [X] Sources (part of it)
 - [ ] Subscriptions
 - [ ] Connect
 
