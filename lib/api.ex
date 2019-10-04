@@ -3,7 +3,12 @@ defmodule Stripi.Api do
     quote do
       use Tesla, except: ~w(head options)a
 
-      plug(Tesla.Middleware.FormUrlencoded)
+      plug(
+        Tesla.Middleware.FormUrlencoded,
+        encode: &Plug.Conn.Query.encode/1,
+        decode: &Plug.Conn.Query.decode/1
+      )
+
       plug(Tesla.Middleware.Headers, Stripi.headers())
       plug(Tesla.Middleware.JSON)
 
