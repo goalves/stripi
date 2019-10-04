@@ -19,8 +19,7 @@ defmodule Stripi do
     |> Application.get_env(:secret_key)
     |> case do
       nil -> raise("Please ensure :stripi key in config has a :secret_key.")
-      "sk_test_" <> _key = key -> key
-      _ -> raise("Please ensure :stripi key in config is a test secret key.")
+      key -> key
     end
   end
 
